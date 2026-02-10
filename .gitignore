@@ -1,0 +1,54 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build folders
+dist/
+build/
+
+# Docker
+*.tar
+*.img
+
+# Kubernetes secrets (DO NOT PUSH)
+*secret*.yaml
+*secrets*.yaml
+
+# AWS sensitive files
+*.pem
+*.key
+credentials
+.aws/
+kubeconfig
+config
+
+# Zip files (like awscliv2.zip)
+*.zip
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# IDE
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
