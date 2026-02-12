@@ -1,31 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: ak-app-deployment
+  labels:
+    app: ak-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapp
+      app: ak-app
   template:
     metadata:
       labels:
-        app: myapp
+        app: ak-app
     spec:
       containers:
-      - name: myapp
-        image: DOCKER_USERNAME/myapp:latest
-        ports:
-        - containerPort: 3000
+        - name: ak-app-container
+          image: 435023700720.dkr.ecr.ap-southeast-1.amazonaws.com/ak-app:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service
+  name: ak-app-service
 spec:
   type: LoadBalancer
   selector:
-    app: myapp
+    app: ak-app
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 3000
